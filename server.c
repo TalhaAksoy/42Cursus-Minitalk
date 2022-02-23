@@ -6,12 +6,11 @@
 /*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 12:51:36 by saksoy            #+#    #+#             */
-/*   Updated: 2022/02/23 17:42:36 by saksoy           ###   ########.fr       */
+/*   Updated: 2022/02/23 19:30:21 by saksoy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <stdio.h>
 
 void	sig_usr(int sig)
 {
@@ -32,7 +31,7 @@ void	sig_usr(int sig)
 
 int	main(void)
 {
-	printf("process_id => %d\n", getpid());
+	ft_printf("process_id => %d\n", getpid());
 	signal(SIGUSR1, sig_usr);
 	signal(SIGUSR2, sig_usr);
 	while (1)
