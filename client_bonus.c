@@ -5,12 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: saksoy <saksoy@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 18:52:07 by saksoy            #+#    #+#             */
-/*   Updated: 2022/03/01 10:35:21 by saksoy           ###   ########.fr       */
+/*   Created: 2022/02/23 15:55:05 by saksoy            #+#    #+#             */
+/*   Updated: 2022/02/26 18:24:53 by saksoy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+void	finish(int sig)
+{
+	if (sig == SIGUSR1)
+		ft_printf("Gönderim Tamamlandı");
+}
 
 void	ft_kill(int pid, char *str)
 {
@@ -45,5 +51,6 @@ int	main(int argc, char **argv)
 		ft_printf("yanlış girdin kanka");
 		return (0);
 	}
+	signal (SIGUSR1, finish);
 	ft_kill(ft_atoi(argv[1]), argv[2]);
 }
