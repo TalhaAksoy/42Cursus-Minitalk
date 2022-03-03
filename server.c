@@ -22,6 +22,8 @@ void	sig_usr(int sig)
 	if (++get_byte == 8)
 	{
 		get_byte = 0;
+		if(!str)
+			ft_printf("\n");
 		ft_printf("%c", str);
 		str = 0;
 	}
